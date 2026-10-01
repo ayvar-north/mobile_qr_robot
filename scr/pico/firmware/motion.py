@@ -1,4 +1,4 @@
-"""Nonblocking finite motion steps; caller supplies MicroPython ticks functions."""
+"""Конечный шаг движения без долгого sleep; время задаёт вызывающий код."""
 
 
 class Motion:
@@ -25,6 +25,7 @@ class Motion:
         self.tick(now)
 
     def tick(self, now):
+        """Один короткий такт: срок шага, пауза реверса и плавный разгон."""
         step = self.active
         if step is None:
             return None

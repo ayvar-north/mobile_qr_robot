@@ -1,4 +1,4 @@
-"""PCA9685 register access. I2C and address are supplied by the caller."""
+"""Запись регистров PCA9685. Готовые I²C и адрес передаёт вызывающий код."""
 
 import time
 
@@ -13,7 +13,7 @@ class PCA9685:
         self.address = address
         if not (24 <= frequency_hz <= 1526):
             raise ValueError("frequency_hz")
-        # Clear every motor channel before changing frequency or MODE1.
+        # Сначала выключаем все 12 моторных каналов, затем меняем частоту.
         for channel in range(12):
             self.set_percent(channel, 0)
         self._write(self.MODE1, 0)
@@ -38,9 +38,9 @@ class PCA9685:
             raise ValueError("percent")
         base = self.LED0 + 4 * channel
         if percent == 0:
-            data = bytes((0, 0, 0, 0x10))  # FULL_OFF
+            data = bytes((0, 0, 0, 0x10))  # Постоянный низкий уровень, включая точные 0%.
         elif percent == 100:
-            data = bytes((0, 0x10, 0, 0))  # FULL_ON
+            data = bytes((0, 0x10, 0, 0))  # Постоянный высокий уровень, включая точные 100%.
         else:
             count = 4096 * percent // 100
             data = bytes((0, 0, count & 0xff, count >> 8))

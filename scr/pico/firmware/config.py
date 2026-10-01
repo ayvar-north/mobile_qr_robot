@@ -1,37 +1,53 @@
-"""Fill these values from the wiring passport before uploading to Pico.
+"""Настройки моторной платы и связи Raspberry Pi Pico с Raspberry Pi.
 
-Importing this module never creates hardware objects or starts motors.
+Номера GP записывайте без приставки GP: для GP20 укажите число 20.
+Названия моторных клемм — строки в кавычках; флаги инверсии — True/False
+без кавычек. None в обязательном поле запрещает запуск прошивки.
+Значения проводки сверяйте с собранным роботом перед моторным испытанием.
 """
 
-# Pico GP20/GP21 -> I2C0 or GP6/GP7 -> I2C1, according to board jumpers.
-I2C_ID = None
-I2C_SDA_GP = None
-I2C_SCL_GP = None
-PCA9685_ADDRESS = None
-PWM_FREQ_HZ = None  # 50 Hz is only the vendor demo value.
+# Шина I²C, через которую Pico управляет микросхемой PCA9685.
+# Выбранная пара I²C0: SDA на GP20, SCL на GP21. При другой разводке
+# согласованно измените все три поля и проверьте положение перемычек платы.
+I2C_ID = 0          # Номер шины Pico: 0 для GP20/GP21 или 1 для GP6/GP7.
+I2C_SDA_GP = 20     # Контакт Pico, передающий данные I²C.
+I2C_SCL_GP = 21     # Контакт Pico, задающий тактовый сигнал I²C.
+PCA9685_ADDRESS = 0x40  # Адрес PCA9685 на I²C; сверьте сканированием шины.
+PWM_FREQ_HZ = 50        # Общая частота PWM всех моторных каналов, Гц.
 
-# One of MA, MB, MC, MD for each track. True reverses the physical motor.
-LEFT_MOTOR = None
-RIGHT_MOTOR = None
-LEFT_INVERTED = None
-RIGHT_INVERTED = None
+# Клеммы моторной платы, к которым подключены левая и правая гусеницы.
+# Доступные названия: "MA", "MB", "MC", "MD"; стороны не должны совпадать.
+LEFT_MOTOR = "MA"     # Левая гусеница использует каналы PCA9685 0/1/2.
+RIGHT_MOTOR = "MB"    # Правая гусеница использует каналы PCA9685 3/4/5.
 
-# Pico UART pins connected to Pi. Supply verified UART number and GP pins.
-UART_ID = None
-UART_TX_GP = None
-UART_RX_GP = None
+# Положительный PWM означает движение гусеницы вперёд относительно корпуса.
+# Если при короткой проверке на поднятом шасси она идёт назад, поставьте True;
+# если вперёд — False. Направления сторон проверяйте по отдельности.
+LEFT_INVERTED = False  # Начальное направление левой гусеницы; уточнить на подставке.
+RIGHT_INVERTED = False  # Начальное направление правой гусеницы; уточнить на подставке.
 
-# Measured / approved direction change pause and ramp limit.
-DIRECTION_DEADTIME_MS = None
-RAMP_PCT_PER_S = None
+# UART передаёт команды между Pi и Pico, независимо от I²C моторной платы.
+# TX Pico соединяют с RX Pi, RX Pico — с TX Pi; земля GND общая.
+UART_ID = 0           # Номер аппаратного UART Pico.
+UART_TX_GP = 0        # Вывод передачи Pico.
+UART_RX_GP = 1        # Вывод приёма Pico.
+# Пара (TX, RX) должна соответствовать UART_ID; допустимые пары проверяются
+# ниже в validate(). Скорость протокола V1 — 115200 бод в main.py и на Pi.
 
-# Conservative software limits. They are not permission for a hardware test.
-MAX_PWM_PCT = 30
-MAX_STEP_MS = 2000
-HB_TIMEOUT_MS = 500
+# Начальные параметры для стендовой проверки; при необходимости скорректируйте
+# их по фактическому поведению привода. STOP обходит плавное изменение PWM.
+DIRECTION_DEADTIME_MS = 20  # Пауза с PWM=0 перед обратным ходом, мс (0–100).
+RAMP_PCT_PER_S = 200        # Предельное изменение PWM за секунду, %/с (1–1000).
+
+# Местные пределы Pico: Pi не может увеличить их отдельной командой MOVE.
+# PWM — процент воздействия, а не измеренная скорость или расстояние.
+MAX_PWM_PCT = 30    # Максимальный модуль PWM одной гусеницы, % (1–100).
+MAX_STEP_MS = 2000  # Максимальная длительность одного MOVE, мс (1–2000).
+HB_TIMEOUT_MS = 500  # Нет нового HEARTBEAT — выключить привод, мс (100–2000).
 
 
 def validate():
+    """Проверить полноту паспорта и допустимые сочетания пинов/пределов."""
     required = ("I2C_ID", "I2C_SDA_GP", "I2C_SCL_GP", "PCA9685_ADDRESS",
                 "PWM_FREQ_HZ", "LEFT_MOTOR", "RIGHT_MOTOR",
                 "LEFT_INVERTED", "RIGHT_INVERTED", "UART_ID",

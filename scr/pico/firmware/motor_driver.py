@@ -1,4 +1,4 @@
-"""Signed track PWM. Positive is forward relative to the chassis."""
+"""Знаковый PWM двух гусениц: положительный знак означает ход вперёд."""
 
 
 CHANNELS = {"MA": (0, 1, 2), "MB": (3, 4, 5),
@@ -15,7 +15,7 @@ class MotorDriver:
         self.channels = (CHANNELS[left_motor], CHANNELS[right_motor])
         self.inverted = (left_inverted, right_inverted)
         self.current = (0, 0)
-        self.stop_all()  # Also disables unused terminals at startup.
+        self.stop_all()  # При старте выключаем и неиспользуемые клеммы.
 
     def stop_all(self):
         self.current = (0, 0)
@@ -30,12 +30,13 @@ class MotorDriver:
             raise error
 
     def set_tracks(self, left, right):
+        """Задать оба мотора без ожидания; при сбое I²C попытаться выключить все."""
         for value in (left, right):
             if type(value) is not int or not -100 <= value <= 100:
                 raise ValueError("track PWM must be integer percent")
         values = (left, right)
         try:
-            # Drop both enables before changing any direction.
+            # До смены направления снимаем PWM сразу с обеих сторон.
             for pwm, _, _ in self.channels:
                 self.pwm.set_percent(pwm, 0)
             for index, ((_, in1, in2), value) in enumerate(zip(self.channels, values)):

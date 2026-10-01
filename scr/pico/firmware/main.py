@@ -1,4 +1,4 @@
-"""Copy this directory to Pico and run main.py after filling config.py."""
+"""Точка запуска Pico: проверка настроек, выключение выходов и цикл UART."""
 
 import time
 from machine import I2C, Pin, UART
@@ -20,6 +20,7 @@ def run():
     driver = MotorDriver(pwm, config.LEFT_MOTOR, config.RIGHT_MOTOR,
                          config.LEFT_INVERTED, config.RIGHT_INVERTED)
     try:
+        # Новый номер загрузки не даёт принять старый сеанс после перезапуска.
         boot = next_counter()
         uart = UART(config.UART_ID, baudrate=115200, bits=8, parity=None,
                     stop=1, tx=Pin(config.UART_TX_GP), rx=Pin(config.UART_RX_GP),
@@ -32,13 +33,13 @@ def run():
         pending = []
         while True:
             now = time.ticks_ms()
-            pending.extend(control.tick(now))  # Expire locally before reading UART.
+            pending.extend(control.tick(now))  # Сначала местные таймеры, потом UART.
             reader.expire(now)
             available = uart.any()
             if available:
                 chunk = uart.read(min(available, 256)) or b""
                 frames = reader.feed(chunk, now)
-                # STOP from a completed batch wins over other requests.
+                # STOP в текущей порции имеет приоритет над остальными командами.
                 stopped = False
                 for frame in frames:
                     if frame[0] == "STOP":
@@ -48,6 +49,7 @@ def run():
                     for frame in frames:
                         pending.extend(control.handle(frame, now))
             pending.extend(control.tick(time.ticks_ms()))
+            # Не даём неисправному UART бесконечно накапливать ответы в памяти.
             if len(pending) > 32:
                 control._stop("driver_error", time.ticks_ms())
                 raise RuntimeError("UART output stalled")
@@ -65,7 +67,7 @@ def run():
         try:
             driver.stop_all()
         except OSError:
-            pass  # I2C failure may leave PCA9685 outputs active.
+            pass  # При отказе I²C выходы PCA9685 могут остаться активными.
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""Two-slot boot counter journal. Failed or ambiguous recovery blocks ARM."""
+"""Счётчик загрузок с двумя записями; сомнительный журнал блокирует ARM."""
 
 from protocol import crc16
 
@@ -21,7 +21,7 @@ def next_counter(prefix="boot"):
         except OSError:
             pass
     if not records:
-        # A fresh board needs a deliberate initialization with motor power off.
+        # Первый запуск журнала делают вручную при отключённом питании моторов.
         raise RuntimeError("boot counter journal absent or corrupt")
     records.sort()
     if len(records) == 2 and records[1][0] - records[0][0] > 1:
@@ -32,7 +32,7 @@ def next_counter(prefix="boot"):
     value += 1
     raw = ("%08x" % value).encode("ascii")
     target = "%s%d.dat" % (prefix, 1 - slot)
-    # Keep the other slot valid.
+    # Пишем старый слот, сохраняя предыдущую исправную запись.
     with open(target, "wb") as output:
         output.write(raw + b":" + ("%04X" % crc16(raw)).encode("ascii"))
         output.flush()
@@ -43,7 +43,7 @@ def next_counter(prefix="boot"):
 
 
 def initialize(prefix="boot"):
-    """Run manually once with motor power disconnected, never on boot."""
+    """Один раз вызвать из USB REPL без питания моторов; не вызывать при старте."""
     for slot in (0, 1):
         try:
             with open("%s%d.dat" % (prefix, slot), "rb"):

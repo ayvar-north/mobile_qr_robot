@@ -1,4 +1,4 @@
-"""Pico session, movement and heartbeat state machine."""
+"""Сеанс, разрешение движения, повторы команд и таймер связи Pico."""
 
 from protocol import ZERO_SESSION, encode, integer
 
@@ -62,6 +62,7 @@ class Controller:
         return responses
 
     def tick(self, now):
+        """Сначала проверить тайм-аут связи, затем срок текущего движения."""
         responses = []
         if self.state in ("ARMED_IDLE", "MOVING") and self.diff(now, self.hb_at) >= self.hb_timeout_ms:
             responses.extend(self._stop("link_timeout", now))
@@ -83,6 +84,7 @@ class Controller:
         return responses
 
     def handle(self, request, now):
+        """Обработать проверенный кадр; STOP проходит вне очереди ID команд."""
         kind, session, seq, payload = request
         if kind == "STOP":
             responses = self._stop("stopped", now)

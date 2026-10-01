@@ -1,4 +1,4 @@
-"""Strict ASCII wire codec for Pi-Pico V1. No machine imports."""
+"""Кадры UART V1: ASCII, CRC и ограниченный приёмный буфер; без machine."""
 
 TYPES = ("HELLO", "READY", "ARM", "MOVE", "HEARTBEAT", "STOP",
          "STATUS", "STATE", "ACK", "DONE", "ERROR")
@@ -7,6 +7,7 @@ STOP_REASONS = ("user", "qr", "fault", "shutdown", "mode_change", "recovery")
 
 
 def crc16(data):
+    """CRC-16/CCITT-FALSE по точным байтам кадра до разделителя CRC."""
     crc = 0xffff
     for byte in data:
         crc ^= byte << 8
@@ -100,6 +101,7 @@ class Reader:
         self.errors = 0
 
     def feed(self, chunk, now):
+        """Собрать полные строки; длинные и повреждённые кадры отбросить."""
         frames = []
         for byte in chunk:
             if self.since is not None and self.diff(now, self.since) > 100:

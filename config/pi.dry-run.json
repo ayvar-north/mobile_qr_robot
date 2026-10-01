@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "dry_run": true,
+  "uart_path": null,
+  "camera_path": null,
+  "socket_path": "/tmp/qr-robot-control.sock",
+  "max_pwm_pct": 30,
+  "max_step_ms": 2000,
+  "max_plan_ms": 20000,
+  "manual_max_ms": 300,
+  "camera_width": 640,
+  "camera_height": 480,
+  "camera_fps": 15,
+  "turn_profiles": [],
+  "hardware_verified": false
+}

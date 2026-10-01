@@ -36,14 +36,19 @@ class PlanExecutor:
                 self.step_index = index
                 # ID фиксируется до отправки; serial_client не меняет его при повторе.
                 self.cmd_id = self.link.seq + 1
-                await self.link.move(step.left_pwm_pct, step.right_pwm_pct, step.duration_ms)
+                # Общий срок действует и во время ожидания последнего DONE.
+                async with asyncio.timeout(max(0.001, deadline - time.monotonic())):
+                    await self.link.move(step.left_pwm_pct, step.right_pwm_pct, step.duration_ms)
+                if time.monotonic() >= deadline:
+                    raise LinkFault("маршрут превысил срок")
             if generation == self.generation:
                 self.on_finish(None)
         except asyncio.CancelledError:
             raise
         except Exception as exc:
             if generation == self.generation:
-                self.on_finish(str(exc))
+                reason = "тайм-аут маршрута" if isinstance(exc, asyncio.TimeoutError) else str(exc)
+                self.on_finish(reason)
         finally:
             if generation == self.generation:
                 self.plan = None

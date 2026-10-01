@@ -56,16 +56,21 @@ class Controller:
 
     async def initialize(self):
         self.state = "WAIT_HARDWARE"
+        revision = self.revision
         try:
             await self.link.handshake()
+            # STOP, принятый во время HELLO, нельзя затереть поздним READY.
+            if revision != self.revision or self.state != "WAIT_HARDWARE":
+                return
             self.link_healthy = True
             self.hardware_ready = True
             self.outputs_confirmed_off = True
             self.off_confirmed_at_ns = time.monotonic_ns()
             self.state = "WAIT_START"
         except Exception as exc:
-            self.link_healthy = False
-            self.stop_reason = str(exc)
+            if revision == self.revision:
+                self.link_healthy = False
+                self.stop_reason = str(exc)
 
     async def handle(self, request: ControlRequest):
         if request.operation == "status":
@@ -105,7 +110,9 @@ class Controller:
                 self.arm_task = asyncio.create_task(self._arm(self.revision))
                 result = self._result(request.request_id, True, "ARMING")
         elif request.operation == "move":
-            if self.state != "READY" or self.mode != "MANUAL":
+            if self.state == "EXECUTING":
+                result = self._result(request.request_id, False, "BUSY")
+            elif self.state != "READY" or self.mode != "MANUAL":
                 result = self._result(request.request_id, False, "NOT_READY")
             else:
                 try:
@@ -130,9 +137,13 @@ class Controller:
             await self.link.handshake()
             if revision != self.revision or self.state != "ARMING":
                 return
+            self._check_camera_before_arm()
             await self.link.arm()
             if revision != self.revision or self.state != "ARMING":
                 return
+            self._check_camera_before_arm()
+            # Чистое поле отсчитывается после разрешения, а не во время HELLO.
+            self.gate.reset_for_start(time.monotonic_ns())
             self.link_healthy = True
             self.hardware_ready = True
             self.armed = True
@@ -143,6 +154,12 @@ class Controller:
         except Exception as exc:
             if revision == self.revision:
                 self.fault(str(exc))
+
+    def _check_camera_before_arm(self):
+        if self.mode == "QR":
+            stamp = self.supervisor.vision_at
+            if not self.camera_healthy or stamp is None or time.monotonic_ns() - stamp > 500_000_000:
+                raise LinkFault("камера недоступна при ARM")
 
     def _start_stop(self, reason):
         # Запретить следующий MOVE сразу, до запуска асинхронной отправки STOP.
@@ -160,7 +177,8 @@ class Controller:
             await self.link.stop(reason)
             self.outputs_confirmed_off = True
             self.off_confirmed_at_ns = time.monotonic_ns()
-            self.state = "STOPPED"
+            # Подтверждение выключения выходов не устраняет причину аварии.
+            self.state = "FAULT" if reason == "fault" else "STOPPED"
         except Exception as exc:
             self.outputs_confirmed_off = False
             self.state = "FAULT"

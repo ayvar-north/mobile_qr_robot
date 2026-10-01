@@ -32,8 +32,9 @@ class SerialClient:
         if self.port is not None:
             return
         import serial
+        # POSIX-блокировка не даст другой копии robotd занять тот же UART.
         self.port = serial.Serial(self.path, 115200, bytesize=8, parity="N", stopbits=1,
-                                  timeout=0, write_timeout=0.05)
+                                  timeout=0, write_timeout=0.05, exclusive=True)
         self.port.reset_input_buffer()
         self.task = asyncio.create_task(self._read_loop())
 

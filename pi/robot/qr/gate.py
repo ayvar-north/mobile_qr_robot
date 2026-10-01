@@ -17,6 +17,7 @@ class CardGate:
         self.max_pwm = max_pwm
         self.max_step_ms = max_step_ms
         self.last_frame = -1
+        self.start_at_ns = 0
         self.last_seen_ns = None
         self.candidate = None
         self.count = 0
@@ -26,8 +27,9 @@ class CardGate:
         self.blocked = True
         self.seen_ids = {}
 
-    def reset_for_start(self):
+    def reset_for_start(self, start_at_ns=0):
         """Карточка, уже лежащая перед камерой, не должна сработать после START."""
+        self.start_at_ns = start_at_ns
         self.need_clean = True
         self.blocked = True
         self.absent_since_ns = None
@@ -50,6 +52,9 @@ class CardGate:
         if any(card.action == "stop" for card in cards):
             self.reset_for_start()
             return GateEvent("stop")
+        # Старый кадр может остановить робот, но не разрешить новое движение.
+        if batch.captured_at_ns < self.start_at_ns:
+            return None
         unique = {(card.card_id, card.content_hash): card for card in cards}
         if unique:
             self.absent_since_ns = None

@@ -98,6 +98,9 @@ class Controller:
                 return [self._answer("ERROR", 0, self.fault, ZERO_SESSION)]
             if payload != self.nonce or self.revoked:
                 responses = self._stop("session_replaced", now)
+                # Ошибка выключения по I²C запрещает подтверждать готовность.
+                if self.state == "FAULT":
+                    return responses + [self._answer("ERROR", 0, self.fault, ZERO_SESSION)]
                 if self.handshake_counter == 0xffffffff:
                     self.state = "FAULT"
                     self.fault = "BOOT_COUNTER_FAULT"

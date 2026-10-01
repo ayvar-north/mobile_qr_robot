@@ -810,10 +810,10 @@ Pico отвечает ACK на принятие MOVE, а DONE — на окон�
 
 ### 4.13. Скачать с GitHub и установить на Raspberry Pi
 
-**Где выполняем:** в терминале Pi или по SSH, под обычным пользователем. Требуются интернет, Git и Python 3.11+ (§4.4). Вместо `OWNER/REPOSITORY` подставьте настоящий адрес вашего репозитория из кнопки **Code → HTTPS** на GitHub. В этом проекте адрес удалённого репозитория не задан, поэтому ниже оставлен явный шаблон.
+**Где выполняем:** в терминале Pi или по SSH, под обычным пользователем. Требуются интернет, Git и Python 3.11+ (§4.4). Репозиторий проекта: [ayvar-north/mobile_qr_robot](https://github.com/ayvar-north/mobile_qr_robot). Команда ниже скачивает эту ветку в папку `~/mobile_robot`.
 
 ```bash
-git clone https://github.com/OWNER/REPOSITORY.git ~/mobile_robot
+git clone --branch master https://github.com/ayvar-north/mobile_qr_robot.git ~/mobile_robot
 cd ~/mobile_robot
 python3 --version
 python3 -m venv .venv

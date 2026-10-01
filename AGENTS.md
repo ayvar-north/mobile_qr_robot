@@ -15,7 +15,7 @@ Read the relevant files in `docs/` before making architectural or behavioral cha
 
 Use these documents in this order:
 
-1. `docs/robot_guide_ru.md` — general project description and context.
+1. `README.md` — general project description and context.
 2. `docs/Pico-Motor-Driver - Waveshare Wiki.html` — motor driver expansion board Wiki for this project.
 3. `docs/robot_architecture_ru.md` - software design architechture
 

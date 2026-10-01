@@ -16,6 +16,10 @@ class MotorDriver:
         self.inverted = (left_inverted, right_inverted)
         self.current = (0, 0)
         self.stop_all()  # При старте выключаем и неиспользуемые клеммы.
+        print("[Моторы] Левая: %s, PWM/IN1/IN2=%s, инверсия=%s" %
+              (left_motor, self.channels[0], left_inverted))
+        print("[Моторы] Правая: %s, PWM/IN1/IN2=%s, инверсия=%s" %
+              (right_motor, self.channels[1], right_inverted))
 
     def stop_all(self):
         self.current = (0, 0)
@@ -27,6 +31,7 @@ class MotorDriver:
                 except OSError as exc:
                     error = exc
         if error:
+            print("[Моторы] Ошибка выключения по I²C:", error)
             raise error
 
     def set_tracks(self, left, right):
@@ -46,9 +51,10 @@ class MotorDriver:
             for (pwm, _, _), value in zip(self.channels, values):
                 self.pwm.set_percent(pwm, abs(value))
             self.current = values
-        except OSError:
+        except OSError as exc:
             try:
                 self.stop_all()
             finally:
                 self.current = (0, 0)
+                print("[Моторы] Ошибка I²C при задании PWM %s: %s" % (values, exc))
             raise

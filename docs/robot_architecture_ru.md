@@ -79,14 +79,14 @@
 | Файл | Реальная ответственность и интерфейс |
 |---|---|
 | `config.py` | Пины, шины, клеммы, инверсии и местные пределы; `validate()` без открытия устройств |
-| `pca9685.py` | `PCA9685(i2c, address, frequency_hz)`, `set_percent(channel, percent)`; регистры PWM и точные 0/100% |
+| `pca9685.py` | `PCA9685(i2c, address, frequency_hz)`, `set_percent(channel, percent)`, `check_percent(channel, percent)`; AI для пакетных записей, проверка настройки, регистры PWM и точные 0/100% |
 | `motor_driver.py` | `MotorDriver.set_tracks(left, right)/stop_all()`; карта MA–MD, инверсии, попытка выключения при ошибке I²C |
 | `motion.py` | `Motion.start(left, right, duration_ms, now)/tick(now)/cancel()`; один шаг, разгон, пауза реверса и срок |
 | `protocol.py` | `encode/decode`, `Reader(ticks_diff)`; принимает только запросы Pi, проверяет ASCII/CRC и поля |
 | `controller.py` | `Controller.handle/tick`; сеанс, ARM, кеш запросов, heartbeat, состояния и ответы |
 | `boot_counter.py` | `initialize/next_counter`; двухслотовый журнал номера загрузки |
 | `main.py` | Настройка I²C/UART, выключение выходов, журнал загрузок и короткий рабочий цикл |
-| `motor_test.py` | Отдельный ручной опыт через Thonny: левая гусеница до 20% и 200 мс, с разгоном и выключением в `finally` |
+| `motor_test.py` | Отдельный ручной опыт через Thonny: левая гусеница до 20% и 200 мс, с разгоном, снимком регистров при достижении PWM и проверкой выключения в `finally` |
 
 Отдельных `session.py` и `safety.py` нет: эти обязанности частично объединены в `controller.py`, `main.py` и `boot_counter.py`. Аппаратный WDT и отдельная линия запрета OE/STBY в коде не используются. `motor_test.py` не входит в автозапуск и работает без сеанса UART; его запускают отдельно от `main.py` по инструкции README.
 

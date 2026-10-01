@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!-- saved from url=(0113)https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W -->
+<html class="client-js" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Pico-Motor-Driver - Waveshare Wiki</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"54c85da69acc365734c9b2c0","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Pico-Motor-Driver","wgTitle":"Pico-Motor-Driver","wgCurRevisionId":98725,"wgRevisionId":98725,"wgArticleId":8733,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Pico-Motor-Driver","wgRelevantArticleId":8733,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"ext.gadget.tabber":"ready","site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","jquery.makeCollapsible.styles":"ready","mediawiki.toc.styles":"ready","skins.tweeki.styles":"ready","skins.tweeki.bootstraptheme.styles":"ready","skins.tweeki.externallinks.styles":"ready","skins.tweeki.awesome.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","ext.FancyBoxThumbs","ext.HighlightjsIntegration","skins.tweeki.messages","skins.tweeki.scripts"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="./Pico-Motor-Driver - Waveshare Wiki_files/aAdkk0o.php">
+<script async="" src="./Pico-Motor-Driver - Waveshare Wiki_files/aAdkk0o(1).php"></script>
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.mw-collapsible-toggle-default:before{content:'['}.mw-collapsible-toggle-default:after{content:']'}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none}
+pre.code2highlight,pre.nohighlight{  padding:0.5em}code.code2highlight.hljs{  padding:1px 4px}.hljs{display:block;overflow-x:auto;padding:0.5em;background:#1E1E1E;color:#DCDCDC}.hljs-keyword,.hljs-literal,.hljs-symbol,.hljs-name{color:#569CD6}.hljs-link{color:#569CD6;text-decoration:underline}.hljs-built_in,.hljs-type{color:#4EC9B0}.hljs-number,.hljs-class{color:#B8D7A3}.hljs-string,.hljs-meta-string{color:#D69D85}.hljs-regexp,.hljs-template-tag{color:#9A5334}.hljs-subst,.hljs-function,.hljs-title,.hljs-params,.hljs-formula{color:#DCDCDC}.hljs-comment,.hljs-quote{color:#57A64A;font-style:italic}.hljs-doctag{color:#608B4E}.hljs-meta,.hljs-meta-keyword,.hljs-tag{color:#9B9B9B}.hljs-variable,.hljs-template-variable{color:#BD63C5}.hljs-attr,.hljs-attribute,.hljs-builtin-name{color:#9CDCFE}.hljs-section{color:gold}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-bullet,.hljs-selector-tag,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#D7BA7D}.hljs-addition{background-color:#144212;display:inline-block;width:100%}.hljs-deletion{background-color:#600;display:inline-block;width:100%}
+.fancybox-wrap,.fancybox-skin,.fancybox-outer,.fancybox-inner,.fancybox-image,.fancybox-wrap iframe,.fancybox-wrap object,.fancybox-nav,.fancybox-nav span,.fancybox-tmp{padding:0;margin:0;border:0;outline:none;vertical-align:top}.fancybox-wrap{position:absolute;top:0;left:0;z-index:8020}.fancybox-skin{position:relative;background:#f9f9f9;color:#444;text-shadow:none;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.fancybox-opened{z-index:8030}.fancybox-opened .fancybox-skin{-webkit-box-shadow:0 10px 25px rgba(0,0,0,0.5);-moz-box-shadow:0 10px 25px rgba(0,0,0,0.5);box-shadow:0 10px 25px rgba(0,0,0,0.5)}.fancybox-outer,.fancybox-inner{position:relative}.fancybox-inner{overflow:hidden}.fancybox-type-iframe .fancybox-inner{-webkit-overflow-scrolling:touch}.fancybox-error{color:#444;font:14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;margin:0;padding:15px;white-space:nowrap}.fancybox-image,.fancybox-iframe{display:block;width:100%;height:100%}.fancybox-image{max-width:100%;max-height:100%}#fancybox-loading,.fancybox-close,.fancybox-prev span,.fancybox-next span{background-image:url(/w/extensions/FancyBoxThumbs/modules/fancyBox/source/fancybox_sprite.png?783d4)}#fancybox-loading{position:fixed;top:50%;left:50%;margin-top:-22px;margin-left:-22px;background-position:0 -108px;opacity:0.8;cursor:pointer;z-index:8060}#fancybox-loading div{width:44px;height:44px;background:url(/w/extensions/FancyBoxThumbs/modules/fancyBox/source/fancybox_loading.gif?c6f1a) center center no-repeat}.fancybox-close{position:absolute;top:-18px;right:-18px;width:36px;height:36px;cursor:pointer;z-index:8040}.fancybox-nav{position:absolute;top:0;width:40%;height:100%;cursor:pointer;text-decoration:none;background:transparent url(/w/extensions/FancyBoxThumbs/modules/fancyBox/source/blank.gif?32547); -webkit-tap-highlight-color:rgba(0,0,0,0);z-index:8040}.fancybox-prev{left:0}.fancybox-next{right:0}.fancybox-nav span{position:absolute;top:50%;width:36px;height:34px;margin-top:-18px;cursor:pointer;z-index:8040;visibility:hidden}.fancybox-prev span{left:10px;background-position:0 -36px}.fancybox-next span{right:10px;background-position:0 -72px}.fancybox-nav:hover span{visibility:visible}.fancybox-tmp{position:absolute;top:-99999px;left:-99999px;visibility:hidden;max-width:99999px;max-height:99999px;overflow:visible !important} .fancybox-lock{overflow:hidden}.fancybox-overlay{position:absolute;top:0;left:0;overflow:hidden;display:none;z-index:8010;background:url(/w/extensions/FancyBoxThumbs/modules/fancyBox/source/fancybox_overlay.png?77aea)}.fancybox-overlay-fixed{position:fixed;bottom:0;right:0}.fancybox-lock .fancybox-overlay{overflow:auto;overflow-y:scroll} .fancybox-title{visibility:hidden;font:normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;text-shadow:none;z-index:8050}.fancybox-opened .fancybox-title{visibility:visible}.fancybox-title-float-wrap{position:absolute;bottom:0;right:50%;margin-bottom:-35px;z-index:8050;text-align:center}.fancybox-title-float-wrap .child{display:inline-block;margin-right:-100%;padding:2px 20px;background:transparent; background:rgba(0,0,0,0.8);-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;text-shadow:0 1px 2px #222;color:#FFF;font-weight:bold;line-height:24px;white-space:nowrap}.fancybox-title-outside-wrap{position:relative;margin-top:10px;color:#fff}.fancybox-title-inside-wrap{padding-top:10px}.fancybox-title-over-wrap{position:absolute;bottom:0;left:0;color:#fff;padding:10px;background:#000;background:rgba(0,0,0,.8)}
+@media screen {
+	.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;font-size:94%}}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Pico-Motor-Driver - Waveshare Wiki_files/aAdkk0o(2).php">
+<link rel="stylesheet" href="./Pico-Motor-Driver - Waveshare Wiki_files/aAdkk0o(3).php">
+<meta name="generator" content="MediaWiki 1.35.5">
+<meta property="og:image" content="https://www.waveshare.com/w/upload/thumb/5/5f/Pico-Motor-Driver-1.jpg/1200px-Pico-Motor-Driver-1.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="https://www.waveshare.com/w/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.waveshare.com/w/opensearch_desc.php" title="Waveshare Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://www.waveshare.com/w/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Waveshare Wiki Atom feed" href="https://www.waveshare.com/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Pico-Motor-Driver rootpage-Pico-Motor-Driver skin-tweeki action-view tweeki-animateLayout tweeki-non-advanced tweeki-user-anon" style="margin-bottom: 0px; position: relative;">			<!-- navbar -->
+			<div id="mw-navigation" class="navbar navbar-default navbar-fixed-top navbar-expand-lg fixed-top navbar-light bg-light" role="navigation">
+				<h2>Navigation menu</h2>
+				<div id="mw-head" class="navbar-inner">
+					<div class="container">
+
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							<a href="https://www.waveshare.com/wiki/Main_Page" class="navbar-brand"><img src="./Pico-Motor-Driver - Waveshare Wiki_files/Ws-watermark-en.svg" alt="Waveshare Wiki"></a>
+						</div>
+
+						<div id="navbar" class="navbar-collapse collapse">
+													<ul class="nav navbar-nav">
+							<li class="nav"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#" id="n-raspberry-pi" class="dropdown-toggle" data-toggle="dropdown">Raspberry Pi <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-main_page.2523rpi-boards"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Boards" tabindex="-1">Boards/Kits</a></li><li id="n-main_page.2523rpi-displays"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Displays" tabindex="-1">Displays</a></li><li id="n-main_page.2523rpi-cameras"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Cameras" tabindex="-1">Cameras</a></li><li id="n-main_page.2523rpi-expansions"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Expansions" tabindex="-1">Expansions</a></li><li id="n-main_page.2523rpi-laptops"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Laptops" tabindex="-1">All-in-one</a></li><li id="n-main_page.2523rpi-robots"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Robots" tabindex="-1">Robots</a></li><li id="n-main_page.2523rpi-games"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Games" tabindex="-1">Portable Gaming</a></li><li id="n-main_page.2523rpi-acces"><a href="https://www.waveshare.com/wiki/Main_Page#RPi-Acces" tabindex="-1">Accessories</a></li><li id="n-main_page.2523android-linux-boards"><a href="https://www.waveshare.com/wiki/Main_Page#Android-Linux-Boards" tabindex="-1">Other Android/Linux Boards</a></li></ul></li><li class="nav"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#" id="n-ai" class="dropdown-toggle" data-toggle="dropdown">AI <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-main_page.2523jetson-ai-boards"><a href="https://www.waveshare.com/wiki/Main_Page#Jetson-AI-Boards" tabindex="-1">Boards/Kits</a></li><li id="n-main_page.2523jetson-ai-displays"><a href="https://www.waveshare.com/wiki/Main_Page#Jetson-AI-Displays" tabindex="-1">Displays</a></li><li id="n-main_page.2523jetson-ai-cameras"><a href="https://www.waveshare.com/wiki/Main_Page#Jetson-AI-Cameras" tabindex="-1">Cameras</a></li><li id="n-main_page.2523jetson-ai-hat"><a href="https://www.waveshare.com/wiki/Main_Page#Jetson-AI-HAT" tabindex="-1">Expansions</a></li><li id="n-main_page.2523jetson-ai-robots"><a href="https://www.waveshare.com/wiki/Main_Page#Jetson-AI-Robots" tabindex="-1">Robots</a></li></ul></li><li class="nav"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#" id="n-displays" class="dropdown-toggle" data-toggle="dropdown">Displays <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-main_page.2523display-lcd-oleds"><a href="https://www.waveshare.com/wiki/Main_Page#Display-LCD-OLEDs" tabindex="-1">LCD/OLED</a></li><li id="n-main_page.2523display-e-paper"><a href="https://www.waveshare.com/wiki/Main_Page#Display-e-Paper" tabindex="-1">e-Paper</a></li></ul></li><li class="nav"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#" id="n-iot" class="dropdown-toggle" data-toggle="dropdown">IoT <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-main_page.2523long-range-wireless-comm"><a href="https://www.waveshare.com/wiki/Main_Page#Long-range-wireless-comm" tabindex="-1">Long Range Wireless</a></li><li id="n-main_page.2523short-range-wireless-comm"><a href="https://www.waveshare.com/wiki/Main_Page#Short-range-wireless-comm" tabindex="-1">Short Range Wireless</a></li><li id="n-main_page.2523wired-communication"><a href="https://www.waveshare.com/wiki/Main_Page#Wired-communication" tabindex="-1">Wired Comm / Converter</a></li><li id="n-main_page.2523misc-cameras-av"><a href="https://www.waveshare.com/wiki/Main_Page#Misc-cameras-av" tabindex="-1">Cameras / Audio / Video</a></li><li id="n-main_page.2523misc-sensor-modules"><a href="https://www.waveshare.com/wiki/Main_Page#Misc-sensor-modules" tabindex="-1">Sensors</a></li><li id="n-main_page.2523misc-servos-motors"><a href="https://www.waveshare.com/wiki/Main_Page#Misc-servos-motors" tabindex="-1">Motors / Servos</a></li><li id="n-main_page.2523misc-other-modules"><a href="https://www.waveshare.com/wiki/Main_Page#Misc-other-modules" tabindex="-1">others</a></li></ul></li><li class="nav"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#" id="n-robotics" class="dropdown-toggle" data-toggle="dropdown">Robotics <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-main_page.2523robotics-cars"><a href="https://www.waveshare.com/wiki/Main_Page#Robotics-cars" tabindex="-1">Mobile Robots</a></li><li id="n-main_page.2523dog-like-robots"><a href="https://www.waveshare.com/wiki/Main_Page#Dog-like-Robots" tabindex="-1">Dog-like Robots</a></li><li id="n-main_page.2523robotics-drivers-sensors"><a href="https://www.waveshare.com/wiki/Main_Page#Robotics-drivers-sensors" tabindex="-1">Drivers / Sensors</a></li><li id="n-main_page.2523robotics-robot-arms"><a href="https://www.waveshare.com/wiki/Main_Page#Robotics-robot-arms" tabindex="-1">Robot Arm / Control</a></li></ul></li><li class="nav"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#" id="n-mcu.252Ffpga" class="dropdown-toggle" data-toggle="dropdown">MCU/FPGA <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-main_page.2523arduino-main-boards"><a href="https://www.waveshare.com/wiki/Main_Page#Arduino-main-boards" tabindex="-1">Arduino</a></li><li id="n-main_page.2523micro.253Abit"><a href="https://www.waveshare.com/wiki/Main_Page#micro:bit" tabindex="-1">micro:bit</a></li><li id="n-main_page.2523mcu.2farm" class="LPC"><a href="https://www.waveshare.com/wiki/Main_Page#MCU.2FARM" tabindex="-1">STM32</a></li><li id="n-main_page.2523fpga"><a href="https://www.waveshare.com/wiki/Main_Page#FPGA" tabindex="-1">FPGA</a></li></ul></li><li class="nav"><a href="https://service.waveshare.com/" id="n-https.253A.252F.252Fservice.waveshare.com" rel="nofollow" target="_blank">Support</a></li>							</ul>
+						
+													<ul class="nav navbar-nav navbar-right">
+							</ul>
+				<form class="navbar-form navbar-right" action="https://www.waveshare.com/w/index.php" id="searchform">
+					<div class="form-group"><input type="search" name="search" placeholder="Product name search" title="Search Waveshare Wiki [alt-shift-f]" accesskey="f" id="searchInput" class="search-query form-control"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="mw-searchButton" class="searchButton btn hidden">
+					</div>
+				</form><ul class="nav navbar-nav navbar-right">							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- /navbar -->
+					<div id="mw-page-base"></div>
+			<div id="mw-head-base"></div>
+			<a id="top"></a>
+
+			<!-- content -->
+			<div id="contentwrapper" class="user-loggedout not-editable container with-navbar with-navbar-fixed">
+
+				
+				<div class="row">
+					<div class="col-md-offset-2 col-md-10" role="main">
+								<div class="mw-body" id="content">
+			<div id="mw-js-message" style="display:none;"></div>
+									<h1 id="firstHeading" class="firstHeading page-header" lang="en"><span dir="auto">Pico-Motor-Driver</span></h1>
+									<!-- bodyContent -->
+			<div id="bodyContent">
+								<div id="siteSub">From Waveshare Wiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#mw-navigation">navigation</a>, 					<a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="tabber">
+<div class="wiki-pages jet-green-color">
+<table id="infotable" class="a-r at-c roundy bgd-green bl-white" style="margin-left: 5px; margin-bottom: 5px; width: 30%;">
+
+<tbody><tr>
+<td>
+<table class="at-c roundy" style="background: transparent;width:100%;">
+
+<tbody><tr>
+<td class="at-c textwhite"><b>Pico-Motor-Driver</b>
+</td></tr>
+<tr>
+<td class="at-c bgwhite" style="margin:5px;"><a href="https://www.waveshare.com/pico-motor-driver.htm" title="Pico-Motor-Driver" target="_blank" rel="nofollow noreferrer noopener"><img alt="Pico-Motor-Driver" src="./Pico-Motor-Driver - Waveshare Wiki_files/300px-Pico-Motor-Driver-1.jpg" decoding="async" loading="lazy" width="300" height="225" srcset="/w/upload/thumb/5/5f/Pico-Motor-Driver-1.jpg/450px-Pico-Motor-Driver-1.jpg 1.5x, /w/upload/thumb/5/5f/Pico-Motor-Driver-1.jpg/600px-Pico-Motor-Driver-1.jpg 2x"></a><br><br><small>Sensors, I2C</small>
+</td></tr></tbody></table>
+</td></tr>
+<tr style="display:none;">
+<td>
+<table class="roundy" style="background: transparent;width:100%;">
+
+<tbody><tr>
+<td class="at-c textwhite"><b>{{{name2}}}</b>
+</td></tr>
+<tr>
+<td class="at-c bgwhite" style="margin:5px;"><br>
+</td></tr></tbody></table>
+</td></tr>
+<tr style="display:none;">
+<td>
+<table class="roundy" style="background: transparent;width:100%;">
+
+<tbody><tr>
+<td class="at-c textwhite"><b>{{{name3}}}</b>
+</td></tr>
+<tr>
+<td class="at-c bgwhite" style="margin:5px;"><br>
+</td></tr></tbody></table>
+</td></tr>
+<tr style="display:none;">
+<td>
+<table class="roundy" style="background: transparent;width:100%;">
+
+<tbody><tr>
+<td class="at-c textwhite"><b>{{{name4}}}</b>
+</td></tr>
+<tr>
+<td class="at-c bgwhite" style="margin:5px;"><br>
+</td></tr></tbody></table>
+</td></tr>
+<tr style="display:none;">
+<td>
+<table class="roundy" style="background: transparent;width:100%;">
+
+<tbody><tr>
+<td class="at-c textwhite"><b>{{{name5}}}</b>
+</td></tr>
+<tr>
+<td class="at-c bgwhite" style="margin:5px;"><br>
+</td></tr></tbody></table>
+</td></tr>
+<tr style="display:none;">
+<td>
+<table class="roundy" style="background: transparent;width:100%;">
+
+<tbody><tr>
+<td class="at-c textwhite"><b>{{{name6}}}</b>
+</td></tr>
+<tr>
+<td class="at-c bgwhite" style="margin:5px;"><br>
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table class="roundy" style="display:none;">
+<tbody><tr>
+<td style="width:2%;">
+</td>
+<td style="width:3%;">
+</td>
+<th colspan="2" width="90%" class="at-c roundytop bgl-white">Primary Attribute
+</th>
+<td style="width:3%;">
+</td>
+<td style="width:2%;">
+</td></tr>
+<tr>
+<td colspan="6" width="90px" class="at-c roundytl roundytr bgwhite b-green" style="border-width: 0 0 1px 0;"><b>Category:</b> <a href="https://www.waveshare.com/wiki/Category:OLEDs_/_LCDs" title="Category:OLEDs / LCDs">OLEDs / LCDs</a>, <a href="https://www.waveshare.com/wiki/Category:LCD" title="Category:LCD">LCD</a>
+</td></tr>
+<tr style="display:none;">
+<th colspan="3" width="90px" class="at-r bgwhite b-green" style="border-width: 0 0 1px 0;">{{{userDefinedInfo}}}:
+</th>
+<td colspan="3" class="at-l b-green bgwhite" style="border-width: 0 0 1px 0;">{{{userdefinedvalue}}}
+</td></tr>
+<tr style="display:none;">
+<td colspan="6" width="90px" class="at-c roundybl roundybr bgwhite"><b>Brand:</b> Waveshare
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table class="a-r roundy" style="display:none;">
+<tbody><tr>
+<td style="width:2%;">
+</td>
+<td style="width:3%;">
+</td>
+<th colspan="2" width="90%" class="at-c roundytop bgl-white">Website
+</th>
+<td style="width:3%;">
+</td>
+<td style="width:2%;">
+</td></tr>
+<tr>
+<td colspan="6" width="90px" class="at-c roundytl roundytr bgwhite b-green" style="border-width: 0 0 1px 0;"><b>International:</b> <a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/pico-motor-driver.htm">Waveshare website</a>
+</td></tr>
+<tr>
+<td colspan="6" width="90px" class="at-c roundybl roundybr bgwhite"><b>Chinese:</b> <a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.net/shop/">官方中文站点</a>
+</td></tr></tbody></table>
+</td></tr>
+<tr style="display:none;">
+<td>
+<table class="a-r roundy" style="background: transparent; border-collapse:collapse;width:100%;display:none;">
+<tbody><tr>
+<td style="width:2%;">
+</td>
+<td style="width:3%;">
+</td>
+<th colspan="2" width="90%" class="at-c roundytop bgl-white">Onboard Interfaces
+</th>
+<td style="width:3%;">
+</td>
+<td style="width:2%;">
+</td></tr>
+<tr>
+<td colspan="6" width="90px" class="at-l roundy bgwhite b-green" style="border-width: 0 0 1px 0;">
+<table class="roundy bgwhite fulltable" style="text-align:center;">
+
+<tbody><tr>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td></tr>
+<tr>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td></tr>
+<tr>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td></tr>
+<tr>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td></tr>
+<tr>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td>
+<td class="roundy bl-gray bw-1" style="width:25%;display:none;"><small></small>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table class="a-r roundy" style="background: transparent; border-collapse:collapse;width:100%;;display:none;">
+<tbody><tr>
+<td style="width:2%;">
+</td>
+<td style="width:3%;">
+</td>
+<th colspan="2" width="90%" class="at-c roundytop bgl-white">Related Products
+</th>
+<td style="width:3%;">
+</td>
+<td style="width:2%;">
+</td></tr>
+<tr>
+<td colspan="6" width="90px" class="at-l roundy bgwhite b-green" style="border-width: 0 0 1px 0;">
+<ul><li><a href="https://www.waveshare.com/wiki/Pico-Audio" title="Pico-Audio">Pico-Audio</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-2CH-RS232" title="Pico-2CH-RS232">Pico-2CH-RS232</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-2CH-RS485" title="Pico-2CH-RS485">Pico-2CH-RS485</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-8SEG-LED" title="Pico-8SEG-LED">Pico-8SEG-LED</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-10DOF-IMU" title="Pico-10DOF-IMU">Pico-10DOF-IMU</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-BLE" title="Pico-BLE">Pico-BLE</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-CAN-A" title="Pico-CAN-A">Pico-CAN-A</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-CapTouch-ePaper-2.9" title="Pico-CapTouch-ePaper-2.9">Pico-CapTouch-ePaper-2.9</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.13" title="Pico-ePaper-2.13">Pico-ePaper-2.13</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.13-B" title="Pico-ePaper-2.13-B">Pico-ePaper-2.13-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.13-D" title="Pico-ePaper-2.13-D">Pico-ePaper-2.13-D</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.66" title="Pico-ePaper-2.66">Pico-ePaper-2.66</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.66-B" title="Pico-ePaper-2.66-B">Pico-ePaper-2.66-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.7" title="Pico-ePaper-2.7">Pico-ePaper-2.7</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.9" title="Pico-ePaper-2.9">Pico-ePaper-2.9</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.9-B" title="Pico-ePaper-2.9-B">Pico-ePaper-2.9-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-2.9-D" title="Pico-ePaper-2.9-D">Pico-ePaper-2.9-D</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-3.7" title="Pico-ePaper-3.7">Pico-ePaper-3.7</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-4.2" title="Pico-ePaper-4.2">Pico-ePaper-4.2</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-4.2-B" title="Pico-ePaper-4.2-B">Pico-ePaper-4.2-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-5.65" title="Pico-ePaper-5.65">Pico-ePaper-5.65</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-5.83" title="Pico-ePaper-5.83">Pico-ePaper-5.83</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-5.83-B" title="Pico-ePaper-5.83-B">Pico-ePaper-5.83-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-7.5" title="Pico-ePaper-7.5">Pico-ePaper-7.5</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ePaper-7.5-B" title="Pico-ePaper-7.5-B">Pico-ePaper-7.5-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ETH-CH9121" title="Pico-ETH-CH9121">Pico-ETH-CH9121</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-Environment-Sensor" title="Pico-Environment-Sensor">Pico-Environment-Sensor</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-Eval-Board" title="Pico-Eval-Board">Pico-Eval-Board</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ESP8266" title="Pico-ESP8266">Pico-ESP8266</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-GPS-L76B" title="Pico-GPS-L76B">Pico-GPS-L76B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-LCD-0.96" title="Pico-LCD-0.96">Pico-LCD-0.96</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-LCD-1.14" title="Pico-LCD-1.14">Pico-LCD-1.14</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-LCD-1.3" title="Pico-LCD-1.3">Pico-LCD-1.3</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-LCD-1.44" title="Pico-LCD-1.44">Pico-LCD-1.44</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-LCD-1.8" title="Pico-LCD-1.8">Pico-LCD-1.8</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-LCD-2" title="Pico-LCD-2">Pico-LCD-2</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-LoRa-SX1262-868M" title="Pico-LoRa-SX1262-868M">Pico-LoRa-SX1262-868M</a></li>
+<li><a class="mw-selflink selflink">Pico-Motor-Driver</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-OLED-1.3" title="Pico-OLED-1.3">Pico-OLED-1.3</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-OLED-2.23" title="Pico-OLED-2.23">Pico-OLED-2.23</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-Relay-B" title="Pico-Relay-B">Pico-Relay-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8" title="Pico-ResTouch-LCD-2.8">Pico-ResTouch-LCD-2.8</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5" title="Pico-ResTouch-LCD-3.5">Pico-ResTouch-LCD-3.5</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-RGB-LED" title="Pico-RGB-LED">Pico-RGB-LED</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-RTC-DS3231" title="Pico-RTC-DS3231">Pico-RTC-DS3231</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-Servo-Driver" title="Pico-Servo-Driver">Pico-Servo-Driver</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-SIM868-GSM/GPRS/GNSS" title="Pico-SIM868-GSM/GPRS/GNSS">Pico-SIM868-GSM/GPRS/GNSS</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-SIM7020E-NB-IoT" title="Pico-SIM7020E-NB-IoT">Pico-SIM7020E-NB-IoT</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-SIM7080G-Cat-M/NB-IoT" title="Pico-SIM7080G-Cat-M/NB-IoT">Pico-SIM7080G-Cat-M/NB-IoT</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-UPS-B" title="Pico-UPS-B">Pico-UPS-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Raspberry-Pi-Pico-Kit-B" title="Raspberry-Pi-Pico-Kit-B">Raspberry-Pi-Pico-Kit-B</a></li>
+<li><a href="https://www.waveshare.com/wiki/Raspberry-Pi-Pico-Basic-Kit" title="Raspberry-Pi-Pico-Basic-Kit">Raspberry-Pi-Pico-Basic-Kit</a></li>
+<li><a href="https://www.waveshare.com/wiki/Raspberry-Pi-Pico-Sensor-Kit" title="Raspberry-Pi-Pico-Sensor-Kit">Raspberry-Pi-Pico-Sensor-Kit</a></li>
+<li><a href="https://www.waveshare.com/wiki/Raspberry_Pi_Pico" title="Raspberry Pi Pico"> Raspberry-Pi-Pico-Start-Kit</a></li>
+<li><a href="https://www.waveshare.com/wiki/Pico-UPS-A" title="Pico-UPS-A">Pico-UPS-A</a></li></ul>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<div class="tabbertab" title="Introduction">
+
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>Raspberry Pi Pico motor driver expansion board, suitable for driving two-wheel or four-wheel robots
+</p>
+<h2><span class="mw-headline" id="Features">Features</span></h2>
+<ul><li>Onboard Raspberry Pi Pico interface, suitable for Raspberry Pi Pico series boards</li>
+<li>I2C controlled, supports 32 x different I2C addresses by setting the 5 address jumpers</li>
+<li>Onboard PCA9685 chip, can output 12-bit hardware PWM to control motor speed</li>
+<li>Onboard TB6612FNG dual H-bridge motor driver chip, high efficiency, not easy to heat</li>
+<li>Integrates 5V regulator, up to 3A output current, can be powered from the battery through VIN terminal</li>
+<li>Break out unused pins of Pico for easy extension</li>
+<li>Provides online supporting manual (demos for Raspberry Pi Pico C/C++ and MicroPython)</li></ul>
+<h2><span class="mw-headline" id="Specification">Specification</span></h2>
+<ul><li>Operating Voltage: 6~12V (VIN terminal)</li>
+<li>Logic level: 3.3V</li>
+<li>PWM driver: PCA9685</li>
+<li>Motor driver: TB6612FNG</li>
+<li>Control interface: I2C</li>
+<li>Hole diameter: 3.0mm</li>
+<li>Dimensions: 65 × 56 (mm)</li></ul>
+<h2><span class="mw-headline" id="Pinout">Pinout</span></h2>
+<p><a href="https://www.waveshare.com/wiki/File:Pico-Motor-Driver-details-inter.jpg" class="image fancybox"><img alt="Pico-Motor-Driver-details-inter.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/500px-Pico-Motor-Driver-details-inter.jpg" decoding="async" loading="lazy" width="500" height="316" srcset="/w/upload/thumb/8/8d/Pico-Motor-Driver-details-inter.jpg/750px-Pico-Motor-Driver-details-inter.jpg 1.5x, /w/upload/8/8d/Pico-Motor-Driver-details-inter.jpg 2x"></a>
+</p>
+<h2><span class="mw-headline" id="Dimensions">Dimensions</span></h2>
+<dl><dd><a href="https://www.waveshare.com/wiki/File:Pico-Motor-Driver-dimen02.png" class="image fancybox"><img alt="Pico-Motor-Driver-dimen02.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-Motor-Driver-dimen02.png" decoding="async" loading="lazy" width="700" height="609"></a></dd></dl>
+</div>
+<div class="tabbertab" title="Pico快速上手">
+<div class="wiki-pages jet-green-color">
+<h2><span class="mw-headline" id="Pico_Getting_Started">Pico Getting Started</span></h2>
+<h3><span class="mw-headline" id="Firmware_Download">Firmware Download</span></h3>
+<div class="toccolours mw-collapsible mw-made-collapsible"><span class="mw-collapsible-toggle mw-collapsible-toggle-default mw-collapsible-toggle-expanded" role="button" tabindex="0" aria-expanded="true"><a class="mw-collapsible-text">Collapse</a></span>
+<ul><li>MicroPython Firmware Download</li></ul>
+<div class="mw-collapsible-content" style="">
+<p><a href="https://www.waveshare.com/wiki/File:MicroPython_Firmware_Download.gif" class="image fancybox"><img alt="MicroPython Firmware Download.gif" src="./Pico-Motor-Driver - Waveshare Wiki_files/MicroPython_Firmware_Download.gif" decoding="async" loading="lazy" width="535" height="638"></a>
+</p>
+</div></div>
+<div class="toccolours mw-collapsible mw-collapsed mw-made-collapsible"><span class="mw-collapsible-toggle mw-collapsible-toggle-default mw-collapsible-toggle-collapsed" role="button" tabindex="0" aria-expanded="false"><a class="mw-collapsible-text">Expand</a></span>
+<ul><li>C_Blink Firmware Download</li></ul>
+<div class="mw-collapsible-content" style="display: none;">
+<p><a href="https://www.waveshare.com/wiki/File:C_Blink_Download.gif" class="image fancybox"><img alt="C Blink Download.gif" src="./Pico-Motor-Driver - Waveshare Wiki_files/C_Blink_Download.gif" decoding="async" loading="lazy" width="535" height="502"></a>
+</p>
+</div></div>
+<h3><span class="mw-headline" id="Basic_Introduction">Basic Introduction</span></h3>
+<p><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/Pico_Basic_Introduction">Raspberry Pi Pico Basics</a><br>
+</p>
+<h3><span class="mw-headline" id="MicroPython_Series">MicroPython Series</span></h3>
+<h4><span class="mw-headline" id="Install_Thonny_IDE">Install Thonny IDE</span></h4>
+<p>To facilitate the development of Pico/Pico2 boards with MicroPython on a computer, it is recommended to download the Thonny IDE
+</p>
+<ul><li>Download Thonny IDE and follow the steps to install, the installation packages are all Windows versions, please refer to Thonny's official website for other versions
+<ul><li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://github.com/thonny/thonny/releases/download/v3.3.3/thonny-3.3.3.exe">Thonny IDE official download link</a></li>
+<li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://files.waveshare.com/wiki/common/Thonny-3.3.3.zip">Thonny IDE download link</a></li>
+<li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://thonny.org/">Thonny official website</a></li></ul></li>
+<li>After installation, configure the language and motherboard environment for the first use. Since we are using Pico/Pico2, pay attention to selecting the Raspberry Pi option for the motherboard environment<br></li></ul>
+<p><a href="https://www.waveshare.com/wiki/File:Pico-R3-Tonny1.png" class="image fancybox"><img alt="Pico-R3-Tonny1.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/700px-Pico-R3-Tonny1.png" decoding="async" loading="lazy" width="700" height="499" srcset="/w/upload/thumb/e/e4/Pico-R3-Tonny1.png/1050px-Pico-R3-Tonny1.png 1.5x, /w/upload/e/e4/Pico-R3-Tonny1.png 2x"></a><br>
+</p>
+<ul><li>Configure MicroPython environment and choose Pico/Pico2 port<br>
+<ul><li>Connect Pico/Pico2 to your computer first, and in the lower right corner of Thonny left-click on the configuration environment option --&gt; select Configure interpreter</li>
+<li>In the pop-up window, select MicroPython (Raspberry Pi Pico), and choose the corresponding port</li></ul></li></ul>
+<p><a href="https://www.waveshare.com/wiki/File:1050px-Raspberry-Pi-Pico-Basic-Kit-M-2.png" class="image fancybox"><img alt="1050px-Raspberry-Pi-Pico-Basic-Kit-M-2.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/700px-1050px-Raspberry-Pi-Pico-Basic-Kit-M-2.png" decoding="async" loading="lazy" width="700" height="575" srcset="/w/upload/a/a1/1050px-Raspberry-Pi-Pico-Basic-Kit-M-2.png 1.5x"></a><br>
+<a href="https://www.waveshare.com/wiki/File:Raspberry-Pi-Pico-Basic-Kit-M-3.png" class="image fancybox"><img alt="Raspberry-Pi-Pico-Basic-Kit-M-3.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Raspberry-Pi-Pico-Basic-Kit-M-3.png" decoding="async" loading="lazy" width="700" height="598"></a><br>
+</p>
+<h4><span class="mw-headline" id="Flash_Firmware">Flash Firmware</span></h4>
+<ul><li>Click OK to return to the Thonny main interface, download the corresponding firmware library and flash it to the device, and then click the Stop button to display the current environment in the Shell window</li>
+<li><font style="color:red;"><b>Note: For the Pico series board, you can directly use the firmware provided by MicroPython official. For the RP series board, please use the firmware provided below or in the program package.</b></font>
+<ul><li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://micropython.org/download/?vendor=Raspberry%20Pi">Pico / Pico2 Official firmware library</a></li>
+<li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://files.waveshare.com/wiki/RP2350-Plus/WAVESHARE-RP2040-Board.zip">RP2040 firmware library</a></li>
+<li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://files.waveshare.com/wiki/RP2350-Plus/WAVESHARE-RP2350A-Board.zip">RP2350A firmware library</a></li>
+<li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://files.waveshare.com/wiki/RP2350-Plus/WAVESHARE-RP2350B-Board.zip">RP2350B firmware library</a></li></ul></li>
+<li>Steps to compile the latest firmware
+<ul><li><a target="_blank" rel="nofollow noreferrer noopener" class="external free" href="https://github.com/micropython/micropython/tree/master/ports/rp2">https://github.com/micropython/micropython/tree/master/ports/rp2</a></li></ul></li>
+<li>How to download the firmware library for Pico/Pico2 in windows: After holding down the BOOT button and connecting to the computer, release the BOOT button, a removable disk will appear on the computer, copy the firmware library into it</li>
+<li>How to download the firmware library for RP2040/RP2350 in windows: After connecting to the computer, press the BOOT key and the RESET key at the same time, release the RESET key first and then release the BOOT key, a removable disk will appear on the computer, copy the firmware library into it (you can also use the Pico/Pico2 method)<br></li></ul>
+<p><a href="https://www.waveshare.com/wiki/File:Raspberry-Pi-Pico2-Python.png" class="image fancybox"><img alt="Raspberry-Pi-Pico2-Python.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Raspberry-Pi-Pico2-Python.png" decoding="async" loading="lazy" width="700" height="593"></a>
+</p>
+<h4><span class="mw-headline" id="MicroPython_Series_Tutorials">MicroPython Series Tutorials</span></h4>
+<p><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/%E3%80%90MicroPython%E3%80%91_Machine.Pin_Functions">【MicroPython】machine.Pin class function details</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/%E3%80%90MicroPython%E3%80%91machine.PWM_Function">【MicroPython】machine.PWM class function details</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/%E3%80%90MicroPython%E3%80%91machine.ADC_Function">【MicroPython】machine.ADC class function details</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/%E3%80%90MicroPython%E3%80%91machine.UART_Function">【MicroPython】machine.UART class function details</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/%E3%80%90MicroPython%E3%80%91machine.I2C_Function">【MicroPython】machine.I2C class function details</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/%E3%80%90MicroPython%E3%80%91machine.SPI_Function">【MicroPython】machine.SPI class function details</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.waveshare.com/wiki/%E3%80%90MicroPython%E3%80%91PIO_Function">【MicroPython】rp2.StateMachine class function details</a><br>
+</p>
+<h3><span id="C/C++_Series"></span><span class="mw-headline" id="C.2FC.2B.2B_Series">C/C++ Series</span></h3>
+<p>For C/C++, it is recommended to use Pico VSCode for development. This is a Microsoft Visual Studio Code extension designed to make it easier for you to create, develop, and debug projects for the Raspberry Pi Pico series development boards. No matter if you are a beginner or an experienced professional, this tool can assist you in developing Pico with confidence and ease. Here's how to install and use the extension.
+</p>
+<ul><li>Official website tutorial: <a target="_blank" rel="nofollow noreferrer noopener" class="external free" href="https://www.raspberrypi.com/news/pico-vscode-extension/">https://www.raspberrypi.com/news/pico-vscode-extension/</a></li>
+<li>This tutorial is suitable for Raspberry Pi Pico, Pico2 and the RP2040 and RP2350 series development boards developed by Waveshare</li>
+<li>The development environment defaults to Windows11. For other environments, please refer to the official tutorial for installation</li></ul>
+<h4><span class="mw-headline" id="Install_VSCode">Install VSCode</span></h4>
+<ol>
+<li>
+First, click to download <a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://drive.google.com/file/d/18-KDNrQlI0KuTMdS6W5iblUGaGm3FbVJ/view?usp=sharing">pico-vscode package</a>, unzip and open the package, double-click to install VSCode <br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-1.png" class="image fancybox"><img alt="Pico-vscode-1.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-1.png" decoding="async" loading="lazy" width="600" height="450" srcset="/w/upload/f/ff/Pico-vscode-1.png 1.5x"></a><br><font style="color:red;"><b>Note: If vscode is installed, check if the version is v1.87.0 or later</b></font><br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-2.png" class="image fancybox"><img alt="Pico-vscode-2.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-2.png" decoding="async" loading="lazy" width="600" height="451" srcset="/w/upload/a/a8/Pico-vscode-2.png 1.5x"></a><br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-3.png" class="image fancybox"><img alt="Pico-vscode-3.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/300px-Pico-vscode-3.png" decoding="async" loading="lazy" width="300" height="234" srcset="/w/upload/b/b3/Pico-vscode-3.png 1.5x"></a>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Install_Extension">Install Extension</span></h4>
+<ol>
+<li>
+Click Extensions and select Install from VSIX<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-4.png" class="image fancybox"><img alt="Pico-vscode-4.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-vscode-4.png" decoding="async" loading="lazy" width="600" height="328"></a><br>
+</li>
+<li>
+Select the package with the vsix suffix and click Install<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-5.png" class="image fancybox"><img alt="Pico-vscode-5.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-vscode-5.png" decoding="async" loading="lazy" width="600" height="459"></a><br>
+</li>
+<li>
+Then vscode will automatically install raspberry-pi-pico and its dependency extensions, you can click Refresh to check the installation progress<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-6.png" class="image fancybox"><img alt="Pico-vscode-6.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-vscode-6.png" decoding="async" loading="lazy" width="400" height="629"></a><br>
+</li>
+<li>
+The text in the right lower corner shows that the installation is complete. Close VSCode <br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-7.png" class="image fancybox"><img alt="Pico-vscode-7.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-7.png" decoding="async" loading="lazy" width="600" height="310" srcset="/w/upload/thumb/2/2c/Pico-vscode-7.png/900px-Pico-vscode-7.png 1.5x, /w/upload/thumb/2/2c/Pico-vscode-7.png/1200px-Pico-vscode-7.png 2x"></a>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Configure_Extension">Configure Extension</span></h4>
+<ol>
+<li>
+Open directory C:\Users\username and copy the entire .pico-sdk to that directory<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-8.png" class="image fancybox"><img alt="Pico-vscode-8.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-8.png" decoding="async" loading="lazy" width="600" height="256" srcset="/w/upload/thumb/7/7d/Pico-vscode-8.png/900px-Pico-vscode-8.png 1.5x, /w/upload/thumb/7/7d/Pico-vscode-8.png/1200px-Pico-vscode-8.png 2x"></a><br>
+</li>
+<li>
+The copy is completed<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-9.png" class="image fancybox"><img alt="Pico-vscode-9.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-9.png" decoding="async" loading="lazy" width="600" height="497" srcset="/w/upload/f/ff/Pico-vscode-9.png 1.5x"></a><br>
+</li>
+<li>
+Open vscode and configure the paths for the Raspberry Pi Pico extensions<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-10.png" class="image fancybox"><img alt="Pico-vscode-10.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-10.png" decoding="async" loading="lazy" width="600" height="319" srcset="/w/upload/thumb/c/c3/Pico-vscode-10.png/900px-Pico-vscode-10.png 1.5x, /w/upload/thumb/c/c3/Pico-vscode-10.png/1200px-Pico-vscode-10.png 2x"></a><br>
+The configuration is as follows:
+<pre>Cmake Path:
+${HOME}/.pico-sdk/cmake/v3.28.6/bin/cmake.exe
+
+Git Path:
+${HOME}/.pico-sdk/git/cmd/git.exe    
+
+Ninja Path:
+${HOME}/.pico-sdk/ninja/v1.12.1/ninja.exe
+
+Python3 Path:
+${HOME}/.pico-sdk/python/3.12.1/python.exe             
+</pre>
+</li>
+</ol>
+<h4><span class="mw-headline" id="New_Project">New Project</span></h4>
+<ol>
+<li>
+The configuration is complete, create a new project, enter the project name, select the path, and click Create to create the project<br>To test the official example, you can click on the Example next to the project name to select<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-11.png" class="image fancybox"><img alt="Pico-vscode-11.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-11.png" decoding="async" loading="lazy" width="600" height="318" srcset="/w/upload/thumb/2/23/Pico-vscode-11.png/900px-Pico-vscode-11.png 1.5x, /w/upload/thumb/2/23/Pico-vscode-11.png/1200px-Pico-vscode-11.png 2x"></a><br>
+</li>
+<li>
+The project is created successfully<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-12.png" class="image fancybox"><img alt="Pico-vscode-12.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-12.png" decoding="async" loading="lazy" width="600" height="318" srcset="/w/upload/thumb/e/e5/Pico-vscode-12.png/900px-Pico-vscode-12.png 1.5x, /w/upload/thumb/e/e5/Pico-vscode-12.png/1200px-Pico-vscode-12.png 2x"></a><br>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Compile_Project">Compile Project</span></h4>
+<ol>
+<li>
+Select the SDK version<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-13.png" class="image fancybox"><img alt="Pico-vscode-13.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-13.png" decoding="async" loading="lazy" width="600" height="318" srcset="/w/upload/thumb/9/92/Pico-vscode-13.png/900px-Pico-vscode-13.png 1.5x, /w/upload/thumb/9/92/Pico-vscode-13.png/1200px-Pico-vscode-13.png 2x"></a><br>
+</li>
+<li>
+Select Yes for advanced configuration<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-14.png" class="image fancybox"><img alt="Pico-vscode-14.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-14.png" decoding="async" loading="lazy" width="600" height="115" srcset="/w/upload/1/10/Pico-vscode-14.png 1.5x"></a><br>
+</li>
+<li>
+Choose the toolchain, 13.2.Rel1 is applicable for ARM cores, RISCV.13.3 is applicable for RISCV cores. You can select either based on your requirements<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-15.png" class="image fancybox"><img alt="Pico-vscode-15.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-15.png" decoding="async" loading="lazy" width="600" height="204" srcset="/w/upload/0/07/Pico-vscode-15.png 1.5x"></a><br>
+</li>
+<li>
+Select Default for CMake version (the path configured earlier)<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-16.png" class="image fancybox"><img alt="Pico-vscode-16.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-16.png" decoding="async" loading="lazy" width="600" height="107" srcset="/w/upload/3/32/Pico-vscode-16.png 1.5x"></a><br>
+</li>
+<li>
+Select Default for Ninja version <br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-17.png" class="image fancybox"><img alt="Pico-vscode-17.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-17.png" decoding="async" loading="lazy" width="600" height="131" srcset="/w/upload/3/36/Pico-vscode-17.png 1.5x"></a><br>
+</li>
+<li>
+Select the development board<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-18.png" class="image fancybox"><img alt="Pico-vscode-18.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-18.png" decoding="async" loading="lazy" width="600" height="318" srcset="/w/upload/thumb/2/28/Pico-vscode-18.png/900px-Pico-vscode-18.png 1.5x, /w/upload/thumb/2/28/Pico-vscode-18.png/1200px-Pico-vscode-18.png 2x"></a><br>
+</li>
+<li>
+Click Compile to compile<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-19.png" class="image fancybox"><img alt="Pico-vscode-19.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-19.png" decoding="async" loading="lazy" width="600" height="317" srcset="/w/upload/thumb/6/61/Pico-vscode-19.png/900px-Pico-vscode-19.png 1.5x, /w/upload/thumb/6/61/Pico-vscode-19.png/1200px-Pico-vscode-19.png 2x"></a><br>
+</li>
+<li>
+The .uf2 format file is successfully compiled<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-20.png" class="image fancybox"><img alt="Pico-vscode-20.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-20.png" decoding="async" loading="lazy" width="600" height="319" srcset="/w/upload/thumb/4/4c/Pico-vscode-20.png/900px-Pico-vscode-20.png 1.5x, /w/upload/thumb/4/4c/Pico-vscode-20.png/1200px-Pico-vscode-20.png 2x"></a><br>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Flash_Firmware_2">Flash Firmware</span></h4>
+<p>Here are two methods for flashing firmware
+</p>
+<ol>
+<li>
+Flash firmware using the pico-vscode plugin<br>
+Connect the development board to the computer, click Run to flash the firmware directly<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-24.jpg" class="image fancybox"><img alt="Pico-vscode-24.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-24.jpg" decoding="async" loading="lazy" width="600" height="317" srcset="/w/upload/thumb/0/09/Pico-vscode-24.jpg/900px-Pico-vscode-24.jpg 1.5x, /w/upload/thumb/0/09/Pico-vscode-24.jpg/1200px-Pico-vscode-24.jpg 2x"></a><br>
+</li>
+<li>
+Flash the firmware manually
+<pre>1. Press and hold the Boot button
+2. Connect the development board to the computer     
+3. Then the computer will recognize the development board as a USB device.
+4. Copy the .uf2 file to the USB drive, and the device will automatically restart, indicating successful program flashing.
+</pre>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Import_Project">Import Project</span></h4>
+<ol>
+<li>
+Select the project directory and import the project<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-23.jpg" class="image fancybox"><img alt="Pico-vscode-23.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-23.jpg" decoding="async" loading="lazy" width="600" height="317" srcset="/w/upload/thumb/9/9b/Pico-vscode-23.jpg/900px-Pico-vscode-23.jpg 1.5x, /w/upload/thumb/9/9b/Pico-vscode-23.jpg/1200px-Pico-vscode-23.jpg 2x"></a>
+</li>
+<li>
+The Cmake file of the imported project cannot have Chinese (including comments), otherwise the import may fail
+</li>
+<li>
+To import your own project, you need to add a line of code to the Cmake file to switch between pico and pico2 normally, otherwise even if pico2 is selected, the compiled firmware will still be suitable for pico<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-21.png" class="image fancybox"><img alt="Pico-vscode-21.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-21.png" decoding="async" loading="lazy" width="600" height="319" srcset="/w/upload/thumb/e/e7/Pico-vscode-21.png/900px-Pico-vscode-21.png 1.5x, /w/upload/thumb/e/e7/Pico-vscode-21.png/1200px-Pico-vscode-21.png 2x"></a>
+<pre>set(PICO_BOARD pico CACHE STRING "Board type")
+</pre>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Update_Extension">Update Extension</span></h4>
+<ol>
+<li>
+The extension version in the offline package is 0.15.2, and you can also choose to update to the latest version after the installation is complete<br><a href="https://www.waveshare.com/wiki/File:Pico-vscode-22.png" class="image fancybox"><img alt="Pico-vscode-22.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Pico-vscode-22.png" decoding="async" loading="lazy" width="600" height="318" srcset="/w/upload/thumb/e/ec/Pico-vscode-22.png/900px-Pico-vscode-22.png 1.5x, /w/upload/thumb/e/ec/Pico-vscode-22.png/1200px-Pico-vscode-22.png 2x"></a><br>
+</li>
+</ol>
+<h3><span class="mw-headline" id="Arduino_IDE_Series">Arduino IDE Series</span></h3>
+<h4><span class="mw-headline" id="Install_Arduino_IDE">Install Arduino IDE</span></h4>
+<ol>
+<li>
+First, go to <a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.arduino.cc/">Arduino official website</a> to download the installation package of the Arduino IDE. <br><a href="https://www.waveshare.com/wiki/File:Arduino%E4%B8%8B%E8%BD%BD2.0%E7%89%88%E6%9C%AC.jpg" class="image fancybox"><img alt="Arduino下载2.0版本.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-Arduino下载2.0版本.jpg" decoding="async" loading="lazy" width="600" height="540" srcset="/w/upload/0/02/Arduino%E4%B8%8B%E8%BD%BD2.0%E7%89%88%E6%9C%AC.jpg 1.5x"></a>
+</li>
+<li>
+Here, you can select Just Download. <br><a href="https://www.waveshare.com/wiki/File:%E4%BB%85%E4%B8%8B%E8%BD%BD%E4%B8%8D%E6%8D%90%E8%B5%A0.png" class="image fancybox"><img alt="仅下载不捐赠.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/仅下载不捐赠.png" decoding="async" loading="lazy" width="600" height="614"></a>
+</li><li>
+Once the download is complete, click Install. <br><a href="https://www.waveshare.com/wiki/File:IDE%E5%AE%89%E8%A3%85%E6%B0%B4%E5%8D%B0-1.gif" class="image fancybox"><img alt="IDE安装水印-1.gif" src="./Pico-Motor-Driver - Waveshare Wiki_files/IDE安装水印-1.gif" decoding="async" loading="lazy" width="411" height="283"></a>
+<br><font style="color:red;"><b>Notice: During the installation process, it will prompt you to install the driver, just click Install</b></font>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Arduino_IDE_Interface">Arduino IDE Interface</span></h4>
+<ol>
+<li>
+After the first installation, when you open the Arduino IDE, it will be in English. You can switch to other languages in File --&gt; Preferences, or continue using the English interface. <br><a href="https://www.waveshare.com/wiki/File:%E9%A6%96%E9%80%89%E9%A1%B9-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87.jpg" class="image fancybox"><img alt="首选项-简体中文.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/首选项-简体中文.jpg" decoding="async" loading="lazy" width="188" height="288"></a>
+</li>
+<li>
+In the Language field, select the language you want to switch to, and click OK. <br><a href="https://www.waveshare.com/wiki/File:%E9%A6%96%E9%80%89%E9%A1%B9-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87ok.jpg" class="image fancybox"><img alt="首选项-简体中文ok.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/600px-首选项-简体中文ok.jpg" decoding="async" loading="lazy" width="600" height="398" srcset="/w/upload/6/67/%E9%A6%96%E9%80%89%E9%A1%B9-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87ok.jpg 1.5x"></a>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Install_Arduino-Pico_Core_in_Arduino_IDE">Install Arduino-Pico Core in Arduino IDE</span></h4>
+<ol>
+<li>
+Open the Arduino IDE, click on the file in the top left corner, and select Preferences<br><a href="https://www.waveshare.com/wiki/File:RoArm-M1_Tutorial04.jpg" class="image fancybox"><img alt="RoArm-M1 Tutorial04.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/RoArm-M1_Tutorial04.jpg" decoding="async" loading="lazy" width="188" height="288"></a>
+</li>
+<li>
+Add the following link to the attached board manager URL, and then click OK <br><font style="color:red;"><b>This link already includes board versions such as RP2040 and RP2350. Please visit <a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://github.com/earlephilhower/arduino-pico">arduino-pico</a> for the latest version files </b></font>
+<pre>https://github.com/earlephilhower/arduino-pico/releases/download/4.5.2/package_rp2040_index.json</pre>
+<p><a href="https://www.waveshare.com/wiki/File:RoArm-M1_Tutorial_II05.jpg" class="image fancybox"><img alt="RoArm-M1 Tutorial II05.jpg" src="./Pico-Motor-Driver - Waveshare Wiki_files/RoArm-M1_Tutorial_II05.jpg" decoding="async" loading="lazy" width="600" height="397"></a>
+<br><font style="color:red;"><b>Note: If you already have an ESP32 board URL, you can use a comma to separate the URLs as follows:</b></font>
+</p>
+<pre>https://dl.espressif.com/dl/package_esp32_index.json,https://github.com/earlephilhower/arduino-pico/releases/download/4.5.2/package_rp2040_index.json</pre>
+</li>
+<li>
+Click Tools &gt; Development Board &gt; Board Manager &gt; Search pico, as my computer has already been installed, it shows that it is installed <br><a href="https://www.waveshare.com/wiki/File:Pico_Get_Start_05.png" class="image fancybox"><img alt="Pico Get Start 05.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico_Get_Start_05.png" decoding="async" loading="lazy" width="700" height="575"></a><br><a href="https://www.waveshare.com/wiki/File:Pico_Get_Start_06.png" class="image fancybox"><img alt="Pico Get Start 06.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico_Get_Start_06.png" decoding="async" loading="lazy" width="324" height="460"></a>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Upload_Demo_at_the_First_Time">Upload Demo at the First Time</span></h4>
+<ol>
+<li>
+Press and hold the BOOTSET button on the Pico board, connect the pico to the USB port of the computer via the Micro USB cable, and release the button after the computer recognizes a removable hard disk (RPI-RP2). <br><a href="https://www.waveshare.com/wiki/File:Pico%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E7%BA%BF.gif" class="image fancybox"><img alt="Pico连接数据线.gif" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico连接数据线.gif" decoding="async" loading="lazy" width="522" height="574"></a>
+</li>
+<li>
+Download the program and open D1-LED.ino under the arduino\PWM\D1-LED path
+</li>
+<li>
+Click Tools --&gt; Port, remember the existing COM, do not click this COM (the COM displayed is different on different computers, remember the COM on your own computer)<br><a href="https://www.waveshare.com/wiki/File:Pico%E8%BF%9E%E6%8E%A5%E5%89%8D%E7%AB%AF%E5%8F%A3.png" class="image fancybox"><img alt="Pico连接前端口.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico连接前端口.png" decoding="async" loading="lazy" width="500" height="536"></a>
+</li>
+<li>
+Connect the driver board to the computer using a USB cable. Then, go to Tools &gt; Port. For the first connection, select uf2 Board. After uploading, when you connect again, an additional COM port will appear<br><a href="https://www.waveshare.com/wiki/File:Pico%E8%BF%9E%E6%8E%A5%E5%90%8Euf2.png" class="image fancybox"><img alt="Pico连接后uf2.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico连接后uf2.png" decoding="async" loading="lazy" width="500" height="613"></a>
+</li>
+<li>
+Click Tools &gt; Development Board &gt; Raspberry Pi Pico &gt; Corresponding models (Raspberry Pi Pico, Raspberry Pi Pico 2, etc.)<br><a href="https://www.waveshare.com/wiki/File:%E5%B7%A5%E5%85%B7pico%E5%BC%80%E5%8F%91%E6%9D%BF.png" class="image fancybox"><img alt="工具pico开发板.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/700px-工具pico开发板.png" decoding="async" loading="lazy" width="700" height="407" srcset="/w/upload/3/3c/%E5%B7%A5%E5%85%B7pico%E5%BC%80%E5%8F%91%E6%9D%BF.png 1.5x"></a><br><a href="https://www.waveshare.com/wiki/File:Arduono-Raspberrypi_pico.png" class="image fancybox"><img alt="Arduono-Raspberrypi pico.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Arduono-Raspberrypi_pico.png" decoding="async" loading="lazy" width="600" height="55"></a>
+</li>
+<li>After setting it up, click the right arrow to upload the program
+<br><a href="https://www.waveshare.com/wiki/File:Pico%E4%B8%8A%E4%BC%A0%E7%A8%8B%E5%BA%8F.png" class="image fancybox"><img alt="Pico上传程序.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico上传程序.png" decoding="async" loading="lazy" width="359" height="88"></a>
+</li>
+</ol>
+<ul><li><font style="color:red;"><b>If issues arise during this period, and if you need to reinstall or update the Arduino IDE version, it is necessary to uninstall the Arduino IDE completely. After uninstalling the software, you need to manually delete all contents within the C:\Users\[name]\AppData\Local\Arduino15 folder (you need to show hidden files to see this folder). Then, proceed with a fresh installation.</b></font></li></ul>
+<h3><span class="mw-headline" id="Open_Source_Demos">Open Source Demos</span></h3>
+<p><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://github.com/waveshareteam/Pico_MircoPython_Examples">MircoPython video demo (github)</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://files.waveshare.com/wiki/common/Raspberry_Pi_Pico_Demo.zip">MicroPython firmware/Blink demos (C)</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://github.com/raspberrypi/pico-examples/">Raspberry Pi official C/C++ demo (github)</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://github.com/raspberrypi/pico-micropython-examples">Raspberry Pi official MicroPython demo (github)</a><br>
+<a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://github.com/earlephilhower/arduino-pico">Arduino official C/C++ demo (github)</a><br>
+</p>
+</div>
+<p><br>
+</p>
+</div>
+<div class="tabbertab" title="使用">
+<h1><span class="mw-headline" id="User_Guide">User Guide</span></h1>
+<h2><span class="mw-headline" id="Hardware_Connection">Hardware Connection</span></h2>
+<p>When connecting the Pico, please be careful not to reverse the corresponding direction. You can judge the direction by observing the end with a USB silkscreen on the module and the USB port end of the Pico (you can also judge the direction by the pin number of the female connector on the module and the pin number of the Pico).<br>
+<a href="https://www.waveshare.com/wiki/File:Pico-Motor-Driver-Use.png" class="image fancybox"><img alt="Pico-Motor-Driver-Use.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-Motor-Driver-Use.png" decoding="async" loading="lazy" width="600" height="356"></a>
+</p>
+<h2><span class="mw-headline" id="Demo_Download">Demo Download</span></h2>
+<p>1. Download directly from Raspberry Pi
+Open the Raspberry Pi terminal and execute:<br>
+</p>
+<pre>sudo apt-get install p7zip-full
+cd ~
+sudo wget  https://files.waveshare.com/wiki/Pico-Motor-Driver/Pico-Motor-Driver-code.7z
+7z Pico_pico-Motor-Driver-code.7z -o./pico-Motor-Driver-code.7z
+cd ~/pico-Motor-Driver-code
+</pre>
+<p>2. Click Demo under Resources to download it<br>
+</p>
+<h2><span class="mw-headline" id="Working_with_Raspberry_Pi">Working with Raspberry Pi</span></h2>
+<h3><span class="mw-headline" id="C">C</span></h3>
+<ul><li>The following tutorial is for operating on a Raspberry Pi, but due to the multi-platform and portable characteristics of cmake, it can also be successfully compiled on a PC, with some differences in operation that you will need to judge on your own <br></li>
+<li>For compilation, please make sure that it is in the c directory:</li></ul>
+<pre>cd ~/pico-Motor-Driver-code/c/
+</pre>
+<p>Create and enter the build directory in the folder, and add the SDK:
+Here ../../pico-sdk is the directory of your SDK.
+There is a build in the demo, which can be accessed directly
+</p>
+<pre>cd build
+export PICO_SDK_PATH=../../pico-sdk
+(Note: Make sure to write the correct path to your own SDK)
+</pre>
+<p>Execute <b>cmake</b>, automatically generate the <b>Makefile</b> file:
+</p>
+<pre>cmake ..
+</pre>
+<p>Execute make to generate an executable file, the first compilation takes a long time<br>
+</p>
+<pre>make -j9
+</pre>
+<p>After the compilation is completed, the uf2 file will be generated.
+Press and hold the button on the Pico board, connect pico to the USB port of the Raspberry Pi via Micro USB cable, then release the button. After connecting, the Raspberry Pi will automatically recognize a removable disk (RPI-RP2), and copy the main.uf2 file in the build folder to the recognized removable disk (RPI-RP2).
+</p>
+<pre>cp main.uf2 /media/pi/RPI-RP2/
+</pre>
+<h3><span class="mw-headline" id="Python">Python</span></h3>
+<h4><span class="mw-headline" id="Working_with_Raspberry_Pi_2">Working with Raspberry Pi</span></h4>
+<ul><li>1. Flash the Micropython firmware and copy the pico_micropython_xxxxx.uf2 file into pico (more on this in the Windows tutorial below). <br></li></ul>
+<p><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.raspberrypi.org/documentation/rp2040/getting-started/#getting-started-with-micropython">Official firmware download.</a><br>
+</p>
+<ul><li>2. Open the Thonny IDE on the Raspberry Pi (click on the Raspberry Pi logo -&gt; Programming -&gt; Thonny Python IDE), you can view the version information by going to Help-&gt;About Thonny<br></li></ul>
+<p>To ensure your version is supported by the Pico package, you can also click on Tools -&gt; Options... -&gt; Interpreter and select MicroPython (Raspberry Pi Pico and ttyACM0 port)<br>
+As shown below: <br>
+<a href="https://www.waveshare.com/wiki/File:Pico-lcd-0.96-img-config2.png" class="image fancybox"><img alt="Pico-lcd-0.96-img-config2.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-lcd-0.96-img-config2.png" decoding="async" loading="lazy" width="800" height="681"></a><br>
+If your current Thonny version does not have the pico support package, input the following command to update the Thonny IDE<br>
+</p>
+<pre>sudo apt upgrade thonny
+</pre>
+<p>3. Click File-&gt;Open...-&gt;python/pico-Motor-Driver-code/PCA9685.py to run the script<br>
+Experimental Phenomenon: Motors A and B will rotate at full speed in the positive direction for 2S, and then rotate at half speed in the reverse direction for 4S<br>
+</p>
+<h2><span class="mw-headline" id="Working_with_Windows">Working with Windows</span></h2>
+<h3><span class="mw-headline" id="python_2">python</span></h3>
+<h4><span class="mw-headline" id="Working_with_Windows_2">Working with Windows</span></h4>
+<ul><li>1. Press and hold the BOOTSET button on the Pico board, connect the pico to the USB port of the computer via the Micro USB cable, and release the button after the computer recognizes a removable hard disk (RPI-RP2). <br></li>
+<li>2. Download pico_micropython_xxxxx.uf2 file,and copy it to the recognized removable disk (RPI-RP2)<br></li></ul>
+<p><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://www.raspberrypi.org/documentation/rp2040/getting-started/#getting-started-with-micropython">Official firmware download.</a><br>
+</p>
+<ul><li>3.Open Thonny IDE (Note: Make sure to use the latest version of Thonny, otherwise there is no support package for Pico, the latest version under Windows is v3.3.3)<br></li>
+<li>4. Click Tools &gt; Settings - &gt; Interpreter and select Pico and the corresponding port as shown in the figure<br></li></ul>
+<p><a href="https://www.waveshare.com/wiki/File:Pico-lcd-0.96-img-config.png" class="image fancybox"><img alt="Pico-lcd-0.96-img-config.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-lcd-0.96-img-config.png" decoding="async" loading="lazy" width="800" height="684"></a><br>
+</p>
+<ul><li>5. File -&gt;Open-&gt;servo.py, click Run, as shown in the figure that the program has been run:</li></ul>
+<p><a href="https://www.waveshare.com/wiki/File:Pico-lcd-0.96-img-run.png" class="image fancybox"><img alt="Pico-lcd-0.96-img-run.png" src="./Pico-Motor-Driver - Waveshare Wiki_files/Pico-lcd-0.96-img-run.png" decoding="async" loading="lazy" width="800" height="116"></a><br>
+The experimental phenomenon is exactly the same as the C demo and will not be repeated here<br>
+</p>
+</div>
+<div class="tabbertab" title="Resources" id="myresources">
+<h1><span class="mw-headline" id="Resources">Resources</span></h1>
+<h2><span class="mw-headline" id="Document">Document</span></h2>
+<ul><li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://files.waveshare.com/wiki/Pico-Motor-Driver/Pico_Motor_Driver_SCH.pdf">Schematic</a></li></ul>
+<h2><span class="mw-headline" id="Demo">Demo</span></h2>
+<ul><li><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://files.waveshare.com/wiki/Pico-Motor-Driver/Pico-Motor-Driver-code.7z">Demo</a></li></ul>
+<p><br>
+</p>
+</div>
+<div class="tabbertab" title="FAQ" id="myfaq">
+<h1><span class="mw-headline" id="FAQ">FAQ</span></h1>
+<p><br>
+</p>
+</div>
+<div class="tabbertab" title="Support" id="mysupport">
+<h1><span class="mw-headline" id="Support">Support</span></h1>
+<p><br><br>
+<br>
+</p>
+<div style="background:linear-gradient(to bottom right,#91C942,#7DB036); border-radius:15px; width:100%;min-width:750px;">
+<div style="display:flex;flex-direction: row;align-items: flex-start;">
+<div style="flex:l; font-size:15px; width:70%; margin-top:20px; margin-bottom:20px; margin-right:40px;padding-left:40px;">
+<p style="font-size:20px; font-weight:bold;">
+Technical Support
+</p>
+<p>
+If you need technical support or have any feedback/review, please click the <b>Submit Now</b> button to submit a ticket, Our support team will check and reply to you within 1 to 2 working days. Please be patient as we make every effort to help you to resolve the issue. 
+<br> 
+Working Time: 9 AM - 6 PM GMT+8 (Monday to Friday)
+</p>
+</div>
+<div style="margin-top:94px;">
+<div id="service" style="display:flex; flex:r; background-color:#393939; color:white; text-align:center; font-size:20px; border-radius:20px;">
+<p><a target="_blank" rel="nofollow noreferrer noopener" class="external text" href="https://service.waveshare.com/">Submit Now</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<!-- 
+NewPP limit report
+Cached time: 20260930181848
+Cache expiry: 0
+Dynamic content: true
+Complications: []
+CPU time usage: 0.247 seconds
+Real time usage: 0.419 seconds
+Preprocessor visited node count: 588/1000000
+Post‐expand include size: 42634/2097152 bytes
+Template argument size: 3039/2097152 bytes
+Highest expansion depth: 8/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1379/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  113.985      1 -total
+ 46.75%   53.291      1 Template:Infobox_item
+ 39.36%   44.865      1 Template:Pico-get-start
+ 29.21%   33.298      1 Template:Pico-quick-start
+ 15.43%   17.592      1 Template:Product_List
+ 14.32%   16.327      1 Template:Pico_Vscode
+ 13.37%   15.240      1 Template:Servicebox1
+ 10.33%   11.769      1 Template:Amazon_nolink
+-->
+</div></div>								<div class="printfooter">
+				Retrieved from "<a dir="ltr" href="https://www.waveshare.com/w/index.php?title=Pico-Motor-Driver&amp;oldid=98725">https://www.waveshare.com/w/index.php?title=Pico-Motor-Driver&amp;oldid=98725</a>"				</div>
+												<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>												<div class="visualClear"></div>
+							</div>
+			<!-- /bodyContent -->
+		</div>
+						</div>
+				</div>
+			</div>
+			<!-- /content -->
+
+			<!-- sidebar-left -->
+			<div class="sidebar-wrapper sidebar-left-wrapper">
+				<div class="sidebar-container container">
+					<div class="row">
+						<div id="sidebar-left" class="col-md-2 col-md-offset-0">
+							<div id="tweekiTOC"><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading" style="display: table;"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none">
+<ul class="nav">
+<li class="toclevel-1 tocsection-1"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul class="nav">
+<li class="toclevel-2 tocsection-2"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Features"><span class="tocnumber">1.1</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Specification"><span class="tocnumber">1.2</span> <span class="toctext">Specification</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Pinout"><span class="tocnumber">1.3</span> <span class="toctext">Pinout</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Dimensions"><span class="tocnumber">1.4</span> <span class="toctext">Dimensions</span></a></li>
+<li class="toclevel-2"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Pico_Getting_Started"><span class="tocnumber">1.5</span> <span class="toctext">Pico Getting Started</span></a>
+<ul class="nav">
+<li class="toclevel-3"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Firmware_Download"><span class="tocnumber">1.5.1</span> <span class="toctext">Firmware Download</span></a></li>
+<li class="toclevel-3"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Basic_Introduction"><span class="tocnumber">1.5.2</span> <span class="toctext">Basic Introduction</span></a></li>
+<li class="toclevel-3"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#MicroPython_Series"><span class="tocnumber">1.5.3</span> <span class="toctext">MicroPython Series</span></a>
+<ul class="nav">
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Install_Thonny_IDE"><span class="tocnumber">1.5.3.1</span> <span class="toctext">Install Thonny IDE</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Flash_Firmware"><span class="tocnumber">1.5.3.2</span> <span class="toctext">Flash Firmware</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#MicroPython_Series_Tutorials"><span class="tocnumber">1.5.3.3</span> <span class="toctext">MicroPython Series Tutorials</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#C.2FC.2B.2B_Series"><span class="tocnumber">1.5.4</span> <span class="toctext">C/C++ Series</span></a>
+<ul class="nav">
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Install_VSCode"><span class="tocnumber">1.5.4.1</span> <span class="toctext">Install VSCode</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Install_Extension"><span class="tocnumber">1.5.4.2</span> <span class="toctext">Install Extension</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Configure_Extension"><span class="tocnumber">1.5.4.3</span> <span class="toctext">Configure Extension</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#New_Project"><span class="tocnumber">1.5.4.4</span> <span class="toctext">New Project</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Compile_Project"><span class="tocnumber">1.5.4.5</span> <span class="toctext">Compile Project</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Flash_Firmware_2"><span class="tocnumber">1.5.4.6</span> <span class="toctext">Flash Firmware</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Import_Project"><span class="tocnumber">1.5.4.7</span> <span class="toctext">Import Project</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Update_Extension"><span class="tocnumber">1.5.4.8</span> <span class="toctext">Update Extension</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Arduino_IDE_Series"><span class="tocnumber">1.5.5</span> <span class="toctext">Arduino IDE Series</span></a>
+<ul class="nav">
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Install_Arduino_IDE"><span class="tocnumber">1.5.5.1</span> <span class="toctext">Install Arduino IDE</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Arduino_IDE_Interface"><span class="tocnumber">1.5.5.2</span> <span class="toctext">Arduino IDE Interface</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Install_Arduino-Pico_Core_in_Arduino_IDE"><span class="tocnumber">1.5.5.3</span> <span class="toctext">Install Arduino-Pico Core in Arduino IDE</span></a></li>
+<li class="toclevel-4"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Upload_Demo_at_the_First_Time"><span class="tocnumber">1.5.5.4</span> <span class="toctext">Upload Demo at the First Time</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Open_Source_Demos"><span class="tocnumber">1.5.6</span> <span class="toctext">Open Source Demos</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#User_Guide"><span class="tocnumber">2</span> <span class="toctext">User Guide</span></a>
+<ul class="nav">
+<li class="toclevel-2 tocsection-7"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Hardware_Connection"><span class="tocnumber">2.1</span> <span class="toctext">Hardware Connection</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Demo_Download"><span class="tocnumber">2.2</span> <span class="toctext">Demo Download</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Working_with_Raspberry_Pi"><span class="tocnumber">2.3</span> <span class="toctext">Working with Raspberry Pi</span></a>
+<ul class="nav">
+<li class="toclevel-3 tocsection-10"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#C"><span class="tocnumber">2.3.1</span> <span class="toctext">C</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Python"><span class="tocnumber">2.3.2</span> <span class="toctext">Python</span></a>
+<ul class="nav">
+<li class="toclevel-4 tocsection-12"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Working_with_Raspberry_Pi_2"><span class="tocnumber">2.3.2.1</span> <span class="toctext">Working with Raspberry Pi</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Working_with_Windows"><span class="tocnumber">2.4</span> <span class="toctext">Working with Windows</span></a>
+<ul class="nav">
+<li class="toclevel-3 tocsection-14"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#python_2"><span class="tocnumber">2.4.1</span> <span class="toctext">python</span></a>
+<ul class="nav">
+<li class="toclevel-4 tocsection-15"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Working_with_Windows_2"><span class="tocnumber">2.4.1.1</span> <span class="toctext">Working with Windows</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Resources"><span class="tocnumber">3</span> <span class="toctext">Resources</span></a>
+<ul class="nav">
+<li class="toclevel-2 tocsection-17"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Document"><span class="tocnumber">3.1</span> <span class="toctext">Document</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Demo"><span class="tocnumber">3.2</span> <span class="toctext">Demo</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#FAQ"><span class="tocnumber">4</span> <span class="toctext">FAQ</span></a></li>
+<li class="toclevel-1"><a href="https://www.waveshare.com/wiki/Pico-Motor-Driver?srsltid=AU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W#Support"><span class="tocnumber">5</span> <span class="toctext">Support</span></a></li>
+</ul>
+<div id="toctotop"><a href="javascript:scrollTo(0,0);">To Top</a></div></div></div>						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /sidebar-left -->
+					<!-- footer -->
+			<div id="footer" role="contentinfo" class="footer container footer-sticky bg-light" style="margin-top: 0px; opacity: 1;">
+			<ul id="footer-custom"><li class="dropup"><a href="https://www.waveshare.com/w/index.php?title=Special:UserLogin&amp;returnto=Pico-Motor-Driver&amp;returntoquery=srsltid%3DAU7gw4V3d6JILQItUSdEOHcIXEipsTN_ly0o0ccx0ZS4Ubtn_52Vfi5W" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Login / Create Account</a></li></ul><div style="clear:both"></div>			</div>
+			<!-- /footer -->
+		
+<script>
+var fbtFancyBoxOptions = {};
+</script>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.247","walltime":"0.419","ppvisitednodes":{"value":588,"limit":1000000},"postexpandincludesize":{"value":42634,"limit":2097152},"templateargumentsize":{"value":3039,"limit":2097152},"expansiondepth":{"value":8,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1379,"limit":5000000},"timingprofile":["100.00%  113.985      1 -total"," 46.75%   53.291      1 Template:Infobox_item"," 39.36%   44.865      1 Template:Pico-get-start"," 29.21%   33.298      1 Template:Pico-quick-start"," 15.43%   17.592      1 Template:Product_List"," 14.32%   16.327      1 Template:Pico_Vscode"," 13.37%   15.240      1 Template:Servicebox1"," 10.33%   11.769      1 Template:Amazon_nolink"]},"cachereport":{"timestamp":"20260930181848","ttl":0,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":902});});</script>	<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4353b6b7c6c2dbd',t:'MTc5MDc5MjMyNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; visibility: hidden;" src="./Pico-Motor-Driver - Waveshare Wiki_files/saved_resource.html"></iframe>
+
+</body></html>
